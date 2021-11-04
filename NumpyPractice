@@ -1,0 +1,25 @@
+import numpy as np
+import random
+
+numofStudents = 18
+x = np.ones(18)
+Header = ['Student IDs', 'Quiz', 'Test', 'Homework']
+#maxScores = np.full((5,5), 100)
+
+def generateGradebook(filename, studentCount, quizCount, hwCount, testCount):
+    print(filename+" "+studentCount+" "+quizCount+" "+hwCount+" "+testCount)
+    for i in range(numofStudents):
+        studentIDs = np.array([str(100) + str(np.random.randint(100000,999999))])
+        studentIDs.reshape((1,1))
+        print(studentIDs)
+    for i in range(numofStudents):
+        studentAverages = np.random.randint(60, 100)
+        Result = np.outer(studentAverages, x)
+        Mean = np.random.normal(Result)
+        #Averages = maxScores * Mean
+        #np.around(Averages)
+        clipAverages = np.clip(Mean, a_min = 50, a_max = 100)
+        roundedAverages = np.round(clipAverages, decimals=0)
+        print(roundedAverages)
+        
+generateGradebook("Class_1", "classSize_" + str(numofStudents), "quizCount_" + str(random.randint(3,12)), "hwCount_" + str(random.randint(3,12)), "testCount_" + str(random.randint(1,5)))
